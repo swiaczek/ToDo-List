@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
-import "./App.css";
+import "./css/App.css";
 
 class App extends Component {
   state = {
@@ -9,35 +9,48 @@ class App extends Component {
       {
         id: 0,
         text: "Nakarmić psa",
-        important: "Medium",
+        priority: "Medium",
         done: true
       },
       {
         id: 1,
         text: "Wyjść na spacer",
-        important: "Low",
+        priority: "Low",
         done: false
       },
       {
         id: 2,
         text: "Nauczyć się japońskiego",
-        important: "High",
+        priority: "High",
         done: true
       },
       {
         id: 3,
         text: "Zagrać w UFC 3",
-        important: "Medium",
+        priority: "Medium",
         done: true
       }
     ]
   };
+
+  deleteTask() {
+    console.log("Usunięto element");
+  }
+
+  changePriority() {
+    console.log("obsługa change");
+  }
+
   render() {
     return (
       <div className="App">
         TODO LIST
         <AddTask />
-        <TaskList tasks={this.state.tasks} />
+        <TaskList
+          tasks={this.state.tasks}
+          delete={this.deleteTask}
+          change={this.changePriority}
+        />
       </div>
     );
   }
