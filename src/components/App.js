@@ -33,13 +33,27 @@ class App extends Component {
     ]
   };
 
-  deleteTask() {
-    console.log("Usunięto element");
-  }
+  deleteTask = id => {
+    console.log("działą");
+    const tasks = [...this.state.tasks];
+    const index = tasks.findIndex(task => task.id === id);
+    tasks.splice(index, 1);
+    this.setState({
+      tasks
+    });
+  };
 
-  changePriority() {
-    console.log("obsługa change");
-  }
+  changePriority = id => {
+    const tasks = [...this.state.tasks];
+    tasks.forEach(task => {
+      if (task.id === id) {
+        task.done = !task.done;
+      }
+    });
+    this.setState({
+      tasks
+    });
+  };
 
   render() {
     return (

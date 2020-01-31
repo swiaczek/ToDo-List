@@ -12,8 +12,12 @@ const Task = props => {
           <td>{text}</td>
           <td>{priority}</td>
           <td>
-            <input type="checkbox" checked={done} onChange={props.change} />
-            <button onClick={props.delete}>
+            <input
+              type="checkbox"
+              checked={done}
+              onChange={() => props.change(id)}
+            />
+            <button onClick={() => props.delete(id)}>
               <img src={trashIcon} alt="icon" />
             </button>
           </td>
