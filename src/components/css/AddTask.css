@@ -15,7 +15,8 @@
 }
 
 .AddTask select {
-  margin-left: 1px;
+  margin: 5px 1px;
+  cursor: pointer;
 }
 
 .AddTask button {
@@ -28,6 +29,7 @@
   box-shadow: 0 0 0 2px white, 0 0 1px 3px black;
   text-transform: uppercase;
   transition: linear 0.3s 0.1s;
+  cursor: pointer;
 }
 
 .AddTask button::after {

@@ -4,33 +4,9 @@ import TaskList from "./TaskList";
 import "./css/App.css";
 
 class App extends Component {
+  counter = 4;
   state = {
-    tasks: [
-      {
-        id: 0,
-        text: "Nakarmić psa",
-        priority: "Medium",
-        done: true
-      },
-      {
-        id: 1,
-        text: "Wyjść na spacer",
-        priority: "Low",
-        done: false
-      },
-      {
-        id: 2,
-        text: "Nauczyć się japońskiego",
-        priority: "High",
-        done: true
-      },
-      {
-        id: 3,
-        text: "Zagrać w UFC 3",
-        priority: "Medium",
-        done: true
-      }
-    ]
+    tasks: []
   };
 
   deleteTask = id => {
@@ -55,11 +31,40 @@ class App extends Component {
     });
   };
 
+  addTask = (text, priority) => {
+    const task = {
+      id: this.counter,
+      text,
+      priority,
+      done: false
+    };
+    this.counter++;
+
+    this.setState(prevState => ({
+      tasks: [...prevState.tasks, task]
+    }));
+    return true;
+  };
+
+  componentDidMount() {
+    if (!localStorage.todoListState) {
+      localStorage.setItem("todoListState", JSON.stringify(this.state.tasks));
+    }
+    const localTodoArray = JSON.parse(localStorage.todoListState);
+    this.setState({
+      tasks: localTodoArray
+    });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("todoListState", JSON.stringify(this.state.tasks));
+  }
+
   render() {
     return (
       <div className="App">
         <h1>ToDo List</h1>
-        <AddTask />
+        <AddTask add={this.addTask} />
         <TaskList
           tasks={this.state.tasks}
           delete={this.deleteTask}
