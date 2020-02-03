@@ -3,31 +3,44 @@
   margin: 40px auto;
 }
 
-.AddTask input,
 .AddTask button,
 .AddTask select {
   padding: 10px 15px;
-  border: 1px solid black;
-  border-radius: 10px;
   font-size: 15px;
-  font-weight: bold;
+  border-color: transparent;
   outline: none;
 }
 
 .AddTask select {
-  margin: 10px 5px;
+  border-bottom: 1px solid rgb(170, 170, 170);
+  margin: 8px 5px;
   cursor: pointer;
+  color: grey;
+}
+
+.AddTask select:hover {
+  border-bottom: 2px solid black;
+}
+
+.AddTask select:focus option {
+  background-color: rgba(192, 192, 192, 0.466);
+}
+.AddTask select:focus {
+  border-bottom: 2px solid rgb(3, 3, 165);
+  color: black;
 }
 
 .AddTask button {
   display: block;
   position: relative;
-  background-color: transparent;
-  margin: 10px auto;
+  margin: 15px auto;
   min-width: 10vw;
+  border: 1px solid silver;
+  background-color: transparent;
   overflow: hidden;
-  box-shadow: 0 0 0 2px white, 0 0 1px 3px black;
+  box-shadow: 0 0 1px 3px rgba(192, 192, 192, 0.466);
   text-transform: uppercase;
+  font-weight: bold;
   transition: linear 0.2s 0.1s;
   cursor: pointer;
 }

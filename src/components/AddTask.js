@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import TextField from "@material-ui/core/TextField";
 import "./css/AddTask.css";
 
 class AddTask extends Component {
   state = {
     text: "",
-    priority: "Medium"
+    priority: "No priority"
   };
 
   handleText = e => {
@@ -19,7 +20,7 @@ class AddTask extends Component {
     if (add) {
       this.setState({
         text: "",
-        priority: "Medium"
+        priority: "No priority"
       });
     }
   };
@@ -33,11 +34,13 @@ class AddTask extends Component {
   render() {
     return (
       <div className="AddTask">
-        <input
-          type="text"
-          placeholder="Add a task name..."
+        <TextField
+          className="TextField"
+          label="Add a new task"
+          placeholder="Enter the name..."
           value={this.state.text}
           onChange={this.handleText}
+          multiline
         />
         <label htmlFor="Priority">
           <select
@@ -46,9 +49,12 @@ class AddTask extends Component {
             value={this.state.priority}
             onChange={this.handleSelect}
           >
-            <option value={this.state.low}>Low</option>
-            <option value={this.state.medium}>Medium</option>
-            <option value={this.state.high}>High</option>
+            <option value="No priority" disabled>
+              Priority
+            </option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
           </select>
         </label>
         <button onClick={this.handleClick}>Add</button>

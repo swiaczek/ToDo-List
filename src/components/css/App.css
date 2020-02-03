@@ -4,3 +4,16 @@
   box-sizing: border-box;
   text-align: center;
 }
+
+.line {
+  margin: 20px auto 0;
+  width: 15vh;
+  height: 3px;
+  background-color: rgb(3, 3, 165);
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 10px;
+  }
+}

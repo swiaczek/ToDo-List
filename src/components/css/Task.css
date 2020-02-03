@@ -48,11 +48,6 @@ tr:hover button {
   visibility: visible;
 }
 
-td button img {
-  width: 20px;
-  height: 20px;
-}
-
 .sortIcon {
   position: relative;
   top: 5px;
