@@ -15,7 +15,7 @@
 }
 
 .AddTask select {
-  margin: 5px 1px;
+  margin: 10px 5px;
   cursor: pointer;
 }
 
@@ -28,7 +28,7 @@
   overflow: hidden;
   box-shadow: 0 0 0 2px white, 0 0 1px 3px black;
   text-transform: uppercase;
-  transition: linear 0.3s 0.1s;
+  transition: linear 0.2s 0.1s;
   cursor: pointer;
 }
 
@@ -39,8 +39,8 @@
   height: 0;
   bottom: 0;
   left: 0;
-  background-color: grey;
-  transition: 0.4s linear;
+  background-color: rgba(0, 0, 0, 0.692);
+  transition: 0.3s linear;
   z-index: -1;
 }
 
