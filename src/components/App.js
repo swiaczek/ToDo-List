@@ -4,13 +4,12 @@ import TaskList from "./TaskList";
 import "./css/App.css";
 
 class App extends Component {
-  counter = 4;
   state = {
-    tasks: []
+    tasks: [],
+    active: false
   };
 
   deleteTask = id => {
-    console.log("działą");
     const tasks = [...this.state.tasks];
     const index = tasks.findIndex(task => task.id === id);
     tasks.splice(index, 1);
@@ -32,8 +31,9 @@ class App extends Component {
   };
 
   addTask = (text, priority) => {
+    const counter = this.state.tasks.length;
     const task = {
-      id: this.counter,
+      id: counter,
       text,
       priority,
       done: false
@@ -44,6 +44,24 @@ class App extends Component {
       tasks: [...prevState.tasks, task]
     }));
     return true;
+  };
+
+  handleSort = () => {
+    const tasks = [...this.state.tasks];
+    if (!this.state.active) {
+      tasks.sort((a, b) => b.id - a.id);
+      this.setState({
+        tasks
+      });
+    } else {
+      tasks.sort((a, b) => a.id - b.id);
+      this.setState({
+        tasks
+      });
+    }
+    this.setState({
+      active: !this.state.active
+    });
   };
 
   componentDidMount() {
@@ -69,6 +87,8 @@ class App extends Component {
           tasks={this.state.tasks}
           delete={this.deleteTask}
           change={this.changePriority}
+          handleSort={this.handleSort}
+          active={this.state.active}
         />
       </div>
     );
