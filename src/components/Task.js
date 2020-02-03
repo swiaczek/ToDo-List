@@ -1,6 +1,8 @@
 import React from "react";
 import "./css/Task.css";
-import trashIcon from "./img/trash.png";
+import Checkbox from "@material-ui/core/Checkbox";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const Task = props => {
   const { id, text, priority, done } = props.task;
@@ -12,14 +14,15 @@ const Task = props => {
           <td>{text}</td>
           <td>{priority}</td>
           <td>
-            <input
+            <Checkbox
+              color="primary"
               type="checkbox"
               checked={done}
               onChange={() => props.change(id)}
             />
-            <button onClick={() => props.delete(id)}>
-              <img src={trashIcon} alt="icon" />
-            </button>
+            <IconButton onClick={() => props.delete(id)} aria-label="delete">
+              <DeleteIcon fontSize="default" />
+            </IconButton>
           </td>
         </tr>
       </tbody>
