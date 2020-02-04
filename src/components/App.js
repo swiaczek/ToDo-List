@@ -65,7 +65,21 @@ class App extends Component {
   };
 
   prioritySort = () => {
-    console.log("Nie umiem :)");
+    const tasks = [...this.state.tasks];
+    if (this.state.active) {
+      tasks.sort((a, b) => a.priority - b.priority);
+      this.setState({
+        tasks
+      });
+    } else {
+      tasks.sort((a, b) => b.priority - a.priority);
+      this.setState({
+        tasks
+      });
+    }
+    this.setState({
+      active: !this.state.active
+    });
   };
 
   doneSort = () => {

@@ -5,8 +5,23 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const Task = props => {
-  const { id, text, priority, done } = props.task;
+  let { id, text, priority, done } = props.task;
+  const numberToString = () => {
+    switch (priority) {
+      case "1":
+        return (priority = "Low");
 
+      case "2":
+        return (priority = "Medium");
+
+      case "3":
+        return (priority = "High");
+
+      default:
+        console.log("No priority");
+    }
+  };
+  numberToString();
   return (
     <>
       <tbody>

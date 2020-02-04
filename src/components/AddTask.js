@@ -5,7 +5,7 @@ import "./css/AddTask.css";
 class AddTask extends Component {
   state = {
     text: "",
-    priority: "Medium"
+    priority: "1"
   };
 
   handleText = e => {
@@ -20,7 +20,7 @@ class AddTask extends Component {
     if (add) {
       this.setState({
         text: "",
-        priority: "Medium"
+        priority: "1"
       });
     }
   };
@@ -50,9 +50,9 @@ class AddTask extends Component {
             value={this.state.priority}
             onChange={this.handleSelect}
           >
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
           </select>
         </label>
         <button onClick={this.handleClick}>Add</button>
