@@ -35,19 +35,25 @@ const TaskList = props => {
           <tr>
             <th>
               Task name
-              <span className="sortIcon" onClick={props.textSort}>
+              <span className="sortIcon" onClick={() => props.sortColumn("id")}>
                 {props.active ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
               </span>
             </th>
             <th>
               Priority
-              <span className="sortIcon" onClick={props.prioritySort}>
+              <span
+                className="sortIcon"
+                onClick={() => props.sortColumn("priority")}
+              >
                 {props.active ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
               </span>
             </th>
             <th>
               Done
-              <span className="sortIcon" onClick={props.doneSort}>
+              <span
+                className="sortIcon"
+                onClick={() => props.sortColumn("done")}
+              >
                 {props.active ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
               </span>
             </th>

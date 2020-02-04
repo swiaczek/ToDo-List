@@ -46,51 +46,15 @@ class App extends Component {
     return true;
   };
 
-  textSort = () => {
+  sortColumn = field => {
     const tasks = [...this.state.tasks];
     if (this.state.active) {
-      tasks.sort((a, b) => a.id - b.id);
+      tasks.sort((a, b) => b[field] - a[field]);
       this.setState({
         tasks
       });
     } else {
-      tasks.sort((a, b) => b.id - a.id);
-      this.setState({
-        tasks
-      });
-    }
-    this.setState({
-      active: !this.state.active
-    });
-  };
-
-  prioritySort = () => {
-    const tasks = [...this.state.tasks];
-    if (this.state.active) {
-      tasks.sort((a, b) => a.priority - b.priority);
-      this.setState({
-        tasks
-      });
-    } else {
-      tasks.sort((a, b) => b.priority - a.priority);
-      this.setState({
-        tasks
-      });
-    }
-    this.setState({
-      active: !this.state.active
-    });
-  };
-
-  doneSort = () => {
-    const tasks = [...this.state.tasks];
-    if (this.state.active) {
-      tasks.sort((a, b) => b.done - a.done);
-      this.setState({
-        tasks
-      });
-    } else {
-      tasks.sort((a, b) => a.done - b.done);
+      tasks.sort((a, b) => a[field] - b[field]);
       this.setState({
         tasks
       });
@@ -124,6 +88,7 @@ class App extends Component {
           tasks={this.state.tasks}
           delete={this.deleteTask}
           change={this.changePriority}
+          sortColumn={this.sortColumn}
           textSort={this.textSort}
           doneSort={this.doneSort}
           prioritySort={this.prioritySort}
