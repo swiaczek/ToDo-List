@@ -46,15 +46,37 @@ class App extends Component {
     return true;
   };
 
-  handleSort = () => {
+  textSort = () => {
     const tasks = [...this.state.tasks];
-    if (!this.state.active) {
-      tasks.sort((a, b) => b.id - a.id);
+    if (this.state.active) {
+      tasks.sort((a, b) => a.id - b.id);
       this.setState({
         tasks
       });
     } else {
-      tasks.sort((a, b) => a.id - b.id);
+      tasks.sort((a, b) => b.id - a.id);
+      this.setState({
+        tasks
+      });
+    }
+    this.setState({
+      active: !this.state.active
+    });
+  };
+
+  prioritySort = () => {
+    console.log("Nie umiem :)");
+  };
+
+  doneSort = () => {
+    const tasks = [...this.state.tasks];
+    if (this.state.active) {
+      tasks.sort((a, b) => b.done - a.done);
+      this.setState({
+        tasks
+      });
+    } else {
+      tasks.sort((a, b) => a.done - b.done);
       this.setState({
         tasks
       });
@@ -88,7 +110,9 @@ class App extends Component {
           tasks={this.state.tasks}
           delete={this.deleteTask}
           change={this.changePriority}
-          handleSort={this.handleSort}
+          textSort={this.textSort}
+          doneSort={this.doneSort}
+          prioritySort={this.prioritySort}
           active={this.state.active}
         />
       </div>

@@ -5,7 +5,7 @@ import "./css/AddTask.css";
 class AddTask extends Component {
   state = {
     text: "",
-    priority: "No priority"
+    priority: "Medium"
   };
 
   handleText = e => {
@@ -20,7 +20,7 @@ class AddTask extends Component {
     if (add) {
       this.setState({
         text: "",
-        priority: "No priority"
+        priority: "Medium"
       });
     }
   };
@@ -44,14 +44,12 @@ class AddTask extends Component {
         />
         <label htmlFor="Priority">
           <select
+            title="Priority"
             name="Priority"
             id="Priority"
             value={this.state.priority}
             onChange={this.handleSelect}
           >
-            <option value="No priority" disabled>
-              Priority
-            </option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
