@@ -5,35 +5,36 @@
 
 .AddTask button,
 .AddTask select {
-  padding: 10px 15px;
+  padding: 6px 0 7px;
   font-size: 15px;
   border-color: transparent;
   outline: none;
+  cursor: pointer;
 }
 
 .AddTask select {
-  border-bottom: 1px solid rgb(170, 170, 170);
-  margin: 8px 5px;
+  border-bottom: 2px solid rgb(170, 170, 170);
+  margin: 15px 10px;
   cursor: pointer;
   color: grey;
 }
 
 .AddTask select:hover {
-  border-bottom: 2px solid black;
+  border-bottom-color: black;
 }
 
 .AddTask select:focus option {
   background-color: rgba(192, 192, 192, 0.466);
 }
 .AddTask select:focus {
-  border-bottom: 2px solid rgb(3, 3, 165);
+  border-bottom: 2px solid #3f51b5;
   color: black;
 }
 
 .AddTask button {
   display: block;
   position: relative;
-  margin: 15px auto;
+  margin: 20px auto;
   min-width: 10vw;
   border: 1px solid silver;
   background-color: transparent;
@@ -42,7 +43,6 @@
   text-transform: uppercase;
   font-weight: bold;
   transition: linear 0.2s 0.1s;
-  cursor: pointer;
 }
 
 .AddTask button::after {
