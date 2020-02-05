@@ -5,6 +5,15 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 
 const TaskList = props => {
+  const {
+    tasks,
+    editTask,
+    deleteTask,
+    changeDone,
+    handleEditText,
+    handleEditPriority
+  } = props;
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -17,17 +26,17 @@ const TaskList = props => {
     setPage(0);
   };
 
-  const tasks = props.tasks
+  const todoList = tasks
     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
     .map(task => (
       <Task
         key={task.id}
         task={task}
-        editTask={props.editTask}
-        deleteTask={props.deleteTask}
-        changeDone={props.changeDone}
-        handleEditText={props.handleEditText}
-        handleEditPriority={props.handleEditPriority}
+        editTask={editTask}
+        deleteTask={deleteTask}
+        changeDone={changeDone}
+        handleEditText={handleEditText}
+        handleEditPriority={handleEditPriority}
       />
     ));
 
@@ -65,7 +74,7 @@ const TaskList = props => {
             </th>
           </tr>
         </thead>
-        {tasks}
+        {todoList}
         <tfoot>
           <tr>
             <td colSpan="3">
