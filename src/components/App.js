@@ -9,7 +9,7 @@ class App extends Component {
     active: true
   };
 
-  deleteTask = id => {
+  handleDeleteTask = id => {
     const tasks = [...this.state.tasks];
     const index = tasks.findIndex(task => task.id === id);
     tasks.splice(index, 1);
@@ -18,7 +18,7 @@ class App extends Component {
     });
   };
 
-  editTask = id => {
+  handleEditTask = id => {
     const tasks = [...this.state.tasks];
     const task = tasks.find(task => task.id === id);
     task.edit = !task.edit;
@@ -28,7 +28,7 @@ class App extends Component {
     });
   };
 
-  changeDone = id => {
+  handleChangeDone = id => {
     const tasks = [...this.state.tasks];
     const task = tasks.find(task => task.id === id);
     task.done = !task.done;
@@ -57,7 +57,7 @@ class App extends Component {
     });
   };
 
-  addTask = (text, priority) => {
+  handleAddTask = (text, priority) => {
     const counter = this.state.tasks.length;
     const task = {
       id: counter,
@@ -131,15 +131,15 @@ class App extends Component {
       <div className="App">
         <h1>ToDo List</h1>
         <div className="line"></div>
-        <AddTask add={this.addTask} />
+        <AddTask addTask={this.handleAddTask} />
         <TaskList
           tasks={this.state.tasks}
-          delete={this.deleteTask}
-          change={this.changeDone}
+          deleteTask={this.handleDeleteTask}
+          changeDone={this.handleChangeDone}
           handleEditText={this.handleEditText}
           handleEditPriority={this.handleEditPriority}
           sortColumn={this.sortColumn}
-          editTask={this.editTask}
+          editTask={this.handleEditTask}
           active={this.state.active}
         />
       </div>

@@ -63,11 +63,11 @@ const Task = props => {
               color="primary"
               type="checkbox"
               checked={done}
-              onChange={() => props.change(id)}
+              onChange={() => props.changeDone(id)}
             />
             <IconButton
               style={edit ? { visibility: "visible" } : null}
-              onClick={() => props.delete(id)}
+              onClick={() => props.deleteTask(id)}
               aria-label="delete"
             >
               <DeleteIcon fontSize="default" />

@@ -24,8 +24,8 @@ const TaskList = props => {
         key={task.id}
         task={task}
         editTask={props.editTask}
-        delete={props.delete}
-        change={props.change}
+        deleteTask={props.deleteTask}
+        changeDone={props.changeDone}
         handleEditText={props.handleEditText}
         handleEditPriority={props.handleEditPriority}
       />

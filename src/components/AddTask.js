@@ -16,7 +16,7 @@ class AddTask extends Component {
   handleClick = () => {
     const { text, priority } = this.state;
     if (text.length <= 1) return alert("Task name is too short :)");
-    const add = this.props.add(text, priority);
+    const add = this.props.addTask(text, priority);
     if (add) {
       this.setState({
         text: "",
