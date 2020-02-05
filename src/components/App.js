@@ -78,16 +78,30 @@ class App extends Component {
     const tasks = [...this.state.tasks];
 
     if (this.state.active) {
-      tasks.sort((a, b) =>
-        a[field] > b[field] ? 1 : b[field] > a[field] ? -1 : 0
-      );
+      tasks.sort((a, b) => {
+        if (field === "text") {
+          a = a[field].toLowerCase();
+          b = b[field].toLowerCase();
+        } else {
+          a = a[field];
+          b = b[field];
+        }
+        return a > b ? 1 : b > a ? -1 : 0;
+      });
       this.setState({
         tasks
       });
     } else {
-      tasks.sort((a, b) =>
-        b[field] > a[field] ? 1 : a[field] > b[field] ? -1 : 0
-      );
+      tasks.sort((a, b) => {
+        if (field === "text") {
+          a = a[field].toLowerCase();
+          b = b[field].toLowerCase();
+        } else {
+          a = a[field];
+          b = b[field];
+        }
+        return b > a ? 1 : a > b ? -1 : 0;
+      });
       this.setState({
         tasks
       });
