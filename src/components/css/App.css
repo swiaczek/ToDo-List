@@ -12,6 +12,31 @@
   background-color: #3f51b5;
 }
 
+.SelectPriority {
+  font-size: 15px;
+  border-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.SelectPriority {
+  border-bottom: 2px solid rgb(170, 170, 170);
+  cursor: pointer;
+  color: grey;
+}
+
+.SelectPriority:hover {
+  border-bottom-color: black;
+}
+
+.SelectPriority:focus option {
+  background-color: rgba(192, 192, 192, 0.466);
+}
+.SelectPriority:focus {
+  border-bottom: 2px solid #3f51b5;
+  color: black;
+}
+
 @media (max-width: 450px) {
   html {
     font-size: 10px;

@@ -3,32 +3,17 @@
   margin: 40px auto;
 }
 
-.AddTask button,
-.AddTask select {
+.AddTask .SelectPriority {
+  padding: 6px 0 7px;
+  margin: 15px 10px;
+}
+
+.AddTask button {
   padding: 6px 0 7px;
   font-size: 15px;
   border-color: transparent;
   outline: none;
   cursor: pointer;
-}
-
-.AddTask select {
-  border-bottom: 2px solid rgb(170, 170, 170);
-  margin: 15px 10px;
-  cursor: pointer;
-  color: grey;
-}
-
-.AddTask select:hover {
-  border-bottom-color: black;
-}
-
-.AddTask select:focus option {
-  background-color: rgba(192, 192, 192, 0.466);
-}
-.AddTask select:focus {
-  border-bottom: 2px solid #3f51b5;
-  color: black;
 }
 
 .AddTask button {
@@ -42,7 +27,7 @@
   box-shadow: 0 0 1px 3px rgba(192, 192, 192, 0.466);
   text-transform: uppercase;
   font-weight: bold;
-  transition: linear 0.2s 0.1s;
+  transition: linear 0.05s 0.1s;
 }
 
 .AddTask button::after {
@@ -53,7 +38,7 @@
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.692);
-  transition: 0.3s linear;
+  transition: 0.1s linear;
   z-index: -1;
 }
 

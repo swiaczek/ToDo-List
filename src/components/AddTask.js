@@ -44,6 +44,7 @@ class AddTask extends Component {
         />
         <label htmlFor="Priority">
           <select
+            className="SelectPriority"
             title="Priority"
             name="Priority"
             id="Priority"

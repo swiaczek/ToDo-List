@@ -23,8 +23,11 @@ const TaskList = props => {
       <Task
         key={task.id}
         task={task}
+        editTask={props.editTask}
         delete={props.delete}
         change={props.change}
+        handleEditText={props.handleEditText}
+        handleEditPriority={props.handleEditPriority}
       />
     ));
 
@@ -35,7 +38,10 @@ const TaskList = props => {
           <tr>
             <th>
               Task name
-              <span className="sortIcon" onClick={() => props.sortColumn("id")}>
+              <span
+                className="sortIcon"
+                onClick={() => props.sortColumn("text")}
+              >
                 {props.active ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
               </span>
             </th>
